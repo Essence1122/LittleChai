@@ -1,68 +1,62 @@
-import React, { PureComponent } from 'react'
-import { 
-   View, 
-   Image, 
-   StyleSheet, 
-   Animated, 
-   TouchableWithoutFeedback,
-   Easing
-} from 'react-native'
-import shallowEqual from 'fbjs/lib/shallowEqual'
+import * as React from 'react';
+import { Animated, View, StyleSheet } from 'react-native';
 
-export default class TabBarIcon extends PureComponent {
-
-  state = {
-    opacity: new Animated.Value(0)
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this._scaleAnimation()
-  }
-
-  _scaleAnimation = () => {
-    this.state.opacity.setValue(0)
-    Animated.timing(
-      this.state.opacity, 
-      {
-        toValue: 1,
-        direction: 100,
-      }
-    ).start()
-  }
-
+export default class TabBarIcon extends React.PureComponent {
   render() {
-    const { focused, icon, activedIcon } = this.props
-    const { opacity } = this.state
-    return (
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={icon}
-          fadeDuration={0}
-          resizeMode={'cover'}
-        />
-        <Animated.Image 
-          style={[
-            styles.activedIcon, 
-            {
-              opacity: focused ? opacity : 0
-            }
-          ]}
-          source={activedIcon}
-        />
-      </View>
-    )
+    const {
+      position,
+      scene,
+      navigation,
+      activeTintColor,
+      inactiveTintColor,
+      style
+    } = this.props;
+    const { route, index } = scene;
+    const { routes } = navigation.state;
+    // Prepend '-1', so there are always at least 2 items in inputRange
+    const inputRange = [-1, ...routes.map((x, i) => i)];
+    const activeOpacity = position.interpolate({
+      inputRange,
+      outputRange: inputRange.map(i => i === index ? 1 : 0)
+    });
+    const inactiveOpacity = position.interpolate({
+      inputRange,
+      outputRange: inputRange.map(i => i === index ? 0 : 1)
+    });
+    // We render the icon twice at the same position on top of each other:
+    // active and inactive one, so we can fade between them.
+    return <View style={style}>
+        <Animated.View style={[styles.icon, { opacity: activeOpacity }]}>
+          {this.props.renderIcon({
+          route,
+          index,
+          focused: true,
+          tintColor: activeTintColor
+        })}
+        </Animated.View>
+        <Animated.View style={[styles.icon, { opacity: inactiveOpacity }]}>
+          {this.props.renderIcon({
+          route,
+          index,
+          focused: false,
+          tintColor: inactiveTintColor
+        })}
+        </Animated.View>
+      </View>;
   }
 }
 
 const styles = StyleSheet.create({
-	imageContainer: {
-    width: 26,
-    height: 26,
-    marginBottom: 6.5,
-	},
-	activedIcon: {
-	  position: 'absolute',
-	  top: 0,
-	}
-})
+  icon: {
+    // We render the icon twice at the same position on top of each other:
+    // active and inactive one, so we can fade between them:
+    // Cover the whole iconContainer:
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});

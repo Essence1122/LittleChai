@@ -5,17 +5,17 @@ import { StyleSheet, View, Image, Button } from 'react-native'
 import { TabBarItem } from '../components'
 
 @connect()
-class Project extends Component {
+class Message extends Component {
 
   static navigationOptions = {
     header: null,
-    tabBarLabel: '项目',
+    tabBarLabel: '消息',
     tabBarIcon: ({ focused, tintColor }) =>
       <TabBarItem 
         focused={focused}
-        icon={require('../assets/tabbar/git_unselected.png')}
-        activedIcon={require('../assets/tabbar/git_selected.png')}
-      />,
+        icon={require('../assets/tabbar/message_unselected.png')}
+        activedIcon={require('../assets/tabbar/message_selected.png')}
+      />
   }
 
   gotoDetail = () => {
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Project
+export default Message

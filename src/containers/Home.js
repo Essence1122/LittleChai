@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavigationActions } from '../utils'
 import { StyleSheet, View, Image, Button } from 'react-native'
-import { TabBarIcon } from '../components'
+import { TabBarItem } from '../components'
 
 @connect()
 class Home extends Component {
@@ -11,7 +11,7 @@ class Home extends Component {
     header: null,
     tabBarLabel: '首页',
     tabBarIcon: ({ focused, tintColor }) =>
-      <TabBarIcon 
+      <TabBarItem 
         focused={focused}
         icon={require('../assets/tabbar/home_unselected.png')}
         activedIcon={require('../assets/tabbar/home_selected.png')}

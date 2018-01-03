@@ -3,7 +3,6 @@ import { View, BackHandler, Animated, Easing } from 'react-native'
 import {
   StackNavigator,
   TabNavigator,
-  TabBarBottom,
   addNavigationHelpers,
   NavigationActions,
 } from 'react-navigation'
@@ -15,12 +14,17 @@ import Detail from './containers/Detail'
 import SplashScreen from './containers/SplashScreen'
 import GuidePages from './containers/GuidePages'
 import Project from './containers/Project'
+import Message from './containers/Message'
 import User from './containers/User'
+import Add from './containers/Add'
+import { TabBarIcon, TabBarBottom } from './components'
 
 const HomeNavigator = TabNavigator(
   {
     Home: { screen: Home },
     Project: { screen: Project },
+    Add: { screen: Add },
+    Message: { screen: Message },
     User: { screen: User },
   },
   {
@@ -35,13 +39,15 @@ const HomeNavigator = TabNavigator(
       //设置tab文字初始颜色
       inactiveTintColor: '#C5D1E9',
       style: {
+        height: 49,
         backgroundColor: '#ffffff',
-        borderTopColor: '#b7b7b7',
+        borderTopColor: '#E1E1E0',
+        borderTopWidth: 0.5,
       },
       backBehavior: 'none',
       labelStyle: {
         fontSize: 10,
-        marginTop: 14,
+        marginTop: 13,
         marginBottom: 2.5,
       },
     },

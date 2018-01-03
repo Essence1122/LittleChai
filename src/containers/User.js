@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavigationActions } from '../utils'
 import { StyleSheet, View, Image, Button } from 'react-native'
-import { TabBarIcon } from '../components'
+import { TabBarItem } from '../components'
 
 @connect()
 class User extends Component {
@@ -11,7 +11,7 @@ class User extends Component {
     header: null,
     tabBarLabel: '我的',
     tabBarIcon: ({ focused, tintColor }) =>
-      <TabBarIcon 
+      <TabBarItem 
         focused={focused}
         icon={require('../assets/tabbar/mine_unselected.png')}
         activedIcon={require('../assets/tabbar/mine_selected.png')}
