@@ -5,6 +5,7 @@ import {
   TabNavigator,
   addNavigationHelpers,
   NavigationActions,
+  TabBarBottom
 } from 'react-navigation'
 import { connect } from 'react-redux'
 import Login from './containers/Login'
@@ -17,7 +18,7 @@ import Project from './containers/Project'
 import Message from './containers/Message'
 import User from './containers/User'
 import Add from './containers/Add'
-import { TabBarIcon, TabBarBottom } from './components'
+import { TabBarIcon } from './components'
 
 const HomeNavigator = TabNavigator(
   {
@@ -39,7 +40,6 @@ const HomeNavigator = TabNavigator(
       //设置tab文字初始颜色
       inactiveTintColor: '#C5D1E9',
       style: {
-        height: 49,
         backgroundColor: '#ffffff',
         borderTopColor: '#E1E1E0',
         borderTopWidth: 0.5,
@@ -140,7 +140,7 @@ class Router extends PureComponent {
     const navigation = addNavigationHelpers({ dispatch, state: router })
     return (
       <View style={{flex: 1}}>
-        <View style={{flex: 1, opacity: home.opacity}}>
+        <View style={{flex: 1}}>
           <AppNavigator navigation={navigation} />
         </View>
       </View>

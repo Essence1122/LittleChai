@@ -1,2 +1,4 @@
 export TabBarItem from './widget/TabBarItem'
-export TabBarBottom from './widget/TabBarBottom'
+export SearchInput from './widget/SearchInput'
+export HomePageHeader from './header/HomePageHeader'
+export HomePageBanner from './banner/HomePageBanner'

@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavigationActions } from '../utils'
 import { StyleSheet, View, Image, Button } from 'react-native'
-import { TabBarItem } from '../components'
+import { TabBarItem, HomePageHeader, HomePageBanner } from '../components'
+
+const images = [
+  {url: require('../assets/banner/banner1.png')},
+  {url: require('../assets/banner/banner2.png')}
+]
 
 @connect()
 class Home extends Component {
@@ -25,7 +30,8 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Goto Detail" onPress={this.gotoDetail} />
+        <HomePageHeader />
+        <HomePageBanner height={189} images={images}/>
       </View>
     )
   }
@@ -33,9 +39,7 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1
   },
   icon: {
     width: 32,
