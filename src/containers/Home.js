@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavigationActions } from '../utils'
-import { StyleSheet, View, Image, Button } from 'react-native'
-import { TabBarItem, HomePageHeader, HomePageBanner } from '../components'
+import { NavigationActions, iosHeaderHeight } from '../utils'
+import { StyleSheet, View, ListView, StatusBar } from 'react-native'
+import { TabBarItem, HomePageHeader, HomePageBanner, ArticleCard } from '../components'
+import * as data from '../data'
 
-const images = [
-  {url: require('../assets/banner/banner1.png')},
-  {url: require('../assets/banner/banner2.png')}
-]
-
+const bannerHeight = 189
+const scrollHeight = bannerHeight - iosHeaderHeight
 @connect()
 class Home extends Component {
 
@@ -23,15 +21,56 @@ class Home extends Component {
       />
   }
 
+  constructor(props) {
+    super(props);
+    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2 });
+    StatusBar.setBarStyle('light-content')
+  }
+
+  state = {
+    headerVisible: true,
+    headerOpacity: 0
+  }
+
   gotoDetail = () => {
     this.props.dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
   }
 
+  onScroll = (e) => {
+    let y = e.nativeEvent.contentOffset.y
+    let visible = 0
+    let opacity = 0
+    if(y > scrollHeight && this.state.headerOpacity === 1) {
+      return false
+    }
+    visible = y < 0 ? 0 : 1
+    opacity = y <= scrollHeight ? y / scrollHeight : 1
+    this.setState({
+      headerVisible: visible,
+      headerOpacity: opacity
+    })
+  }
+
+  renderRow = (rowData, sectionID, rowID) => (
+    <ArticleCard key={rowData._id} {...rowData} />
+  )
+
+  renderHeader = () => (
+    <HomePageBanner height={bannerHeight} images={data.images}/>
+  )
+
   render() {
     return (
       <View style={styles.container}>
-        <HomePageHeader />
-        <HomePageBanner height={189} images={images}/>
+        <HomePageHeader {...this.state}/>
+        <ListView
+          dataSource={this.ds.cloneWithRows(data.articles)}
+          renderRow={this.renderRow}
+          onEndReachedThreshold={40}
+          renderHeader={this.renderHeader}
+          enableEmptySections
+          onScroll={this.onScroll}
+        />
       </View>
     )
   }
