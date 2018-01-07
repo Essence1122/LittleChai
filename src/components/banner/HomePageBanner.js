@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, StyleSheet } from 'react-native'
 import Swiper from 'react-native-swiper'
 import Image from '../widget/Image'
-import { isString, width } from '../../utils'
+import { isString, width, pt } from '../../utils'
 
 export default class HomePageBanner extends Component {
 
@@ -46,15 +46,15 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	activeDot: {
-		width: 12,
+		width: pt(12),
 		backgroundColor: '#ffffff',
 	},
 	dot: {
-		width: 6,
-		height: 6,
-		borderRadius: 6,
-		marginLeft: 4,
-		marginRight: 4,
+		width: pt(6),
+		height: pt(6),
+		borderRadius: pt(6),
+		marginLeft: pt(4),
+		marginRight: pt(4),
 		backgroundColor: 'rgba(255, 255, 255, 0.8)'
 	}
 })

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Image from '../widget/Image'
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
+import { pt } from '../../utils'
 
 export default class ButtonCell extends PureComponent {
 
@@ -37,14 +38,14 @@ export default class ButtonCell extends PureComponent {
 
 const styles = StyleSheet.create({
 	touch: {
-		width: 100,
-		height: 120,
-		borderRadius: 4,
-		marginTop: 22
+		width: pt(100),
+		height: pt(120),
+		borderRadius: pt(4),
+		marginTop: pt(22)
 	},
 	cellContainer: {
 		flex: 1,
-		borderRadius: 4,
+		borderRadius: pt(4),
 		backgroundColor: '#ffffff',
 		alignItems: 'center',
 		shadowOffset: {width: 0, height: 2},  

@@ -64,10 +64,11 @@ const styles = StyleSheet.create({
     width: 26,
     height: 26,
     marginBottom: 6.5,
+    backgroundColor: '#ffffff'
 	},
 	activedIcon: {
 	  position: 'absolute',
 	  top: 0,
-
+    backgroundColor: '#ffffff'
 	}
 })

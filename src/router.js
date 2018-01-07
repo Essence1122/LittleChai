@@ -39,6 +39,9 @@ const HomeNavigator = TabNavigator(
       activeTintColor: '#863ADA',
       //设置tab文字初始颜色
       inactiveTintColor: '#C5D1E9',
+      tabStyle: {
+        backgroundColor: '#ffffff'
+      },
       style: {
         backgroundColor: '#ffffff',
         borderTopColor: '#E1E1E0',
