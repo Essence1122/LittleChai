@@ -6,6 +6,11 @@ import SearchInput from '../widget/SearchInput'
 
 export default class HomePageHeader extends PureComponent {
 
+	static propTypes = {
+	  headerOpacity: PropTypes.number,
+	  headerVisible: PropTypes.bool
+	}
+
 	componentWillReceiveProps(nextProps) {
 		const { headerVisible, headerOpacity } = nextProps
 		this.view.setNativeProps({

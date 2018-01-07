@@ -69,4 +69,10 @@ export const articles = [
 	}
 ]
 
+export const userinfo = {
+	image: require('./assets/mine/header.png'),
+	nickname: 'Ellinta',
+	signature: 'This world was never meant for one as beautiful as you...'
+}
+
 

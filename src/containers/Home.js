@@ -38,12 +38,12 @@ class Home extends Component {
 
   onScroll = (e) => {
     let y = e.nativeEvent.contentOffset.y
-    let visible = 0
+    let visible = true
     let opacity = 0
     if(y > scrollHeight && this.state.headerOpacity === 1) {
       return false
     }
-    visible = y < 0 ? 0 : 1
+    visible = y < 0 ? false : true
     opacity = y <= scrollHeight ? y / scrollHeight : 1
     this.setState({
       headerVisible: visible,

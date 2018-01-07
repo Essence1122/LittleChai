@@ -43,7 +43,8 @@ export default class ArticleCard extends PureComponent {
 				underlayColor={'rgba(255, 255, 255, 0.5)'}
 			>
 				<View style={styles.cardWrapper}>
-					<Image 
+					<Image
+						resizeMode='cover'
 						source={image} 
 						style={{width: 100, height: 100, marginLeft: 17}}
 					/>

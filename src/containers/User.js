@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavigationActions } from '../utils'
 import { StyleSheet, View, Image, Button } from 'react-native'
-import { TabBarItem } from '../components'
+import { TabBarItem, UserHeader, ControllButtons } from '../components'
+import * as data from '../data'
 
+const buttons = [
+  {image: require('../assets/mine/praise.png'), label: '赞过的'},
+  {image: require('../assets/mine/collection.png'), label: '收藏的'},
+  {image: require('../assets/mine/readed.png'), label: '读过的'},
+  {image: require('../assets/mine/tag.png'), label: '标签'},
+  {image: require('../assets/mine/advice.png'), label: '意见反馈'},
+  {image: require('../assets/mine/setting.png'), label: '设置'}
+]
 @connect()
 class User extends Component {
 
@@ -25,7 +34,8 @@ class User extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Goto Detail" onPress={this.gotoDetail} />
+        <UserHeader {...data.userinfo}/>
+        <ControllButtons buttons={buttons}/>
       </View>
     )
   }
@@ -33,9 +43,7 @@ class User extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1
   },
   icon: {
     width: 32,
