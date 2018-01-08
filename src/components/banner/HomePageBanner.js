@@ -26,11 +26,11 @@ export default class HomePageBanner extends Component {
 			)
 		})
 		return (
-			<View style={{height: height, marginBottom: 22}}>
+			<View style={{height: height, marginBottom: pt(22)}}>
 				<Swiper 
 					autoplay 
 					autoplayTimeout={4}
-					paginationStyle={{bottom: 10}}
+					paginationStyle={{bottom: pt(10)}}
 		      dot={ <View style={styles.dot}></View> }
 		      activeDot={ <View style={[styles.dot ,styles.activeDot]}></View> }
 				>

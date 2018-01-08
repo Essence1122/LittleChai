@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { View, BackHandler, Animated, Easing } from 'react-native'
+import { View, BackHandler, Animated, Easing, StyleSheet } from 'react-native'
 import {
   StackNavigator,
   TabNavigator,
@@ -19,6 +19,7 @@ import Message from './containers/Message'
 import User from './containers/User'
 import Add from './containers/Add'
 import { TabBarIcon } from './components'
+import { pt } from './utils'
 
 const HomeNavigator = TabNavigator(
   {
@@ -40,18 +41,19 @@ const HomeNavigator = TabNavigator(
       //设置tab文字初始颜色
       inactiveTintColor: '#C5D1E9',
       tabStyle: {
-        backgroundColor: '#ffffff'
+        backgroundColor: 'transparent'      
       },
       style: {
+        height: pt(49),
         backgroundColor: '#ffffff',
         borderTopColor: '#E1E1E0',
-        borderTopWidth: 0.5,
+        borderTopWidth: StyleSheet.hairlineWidth      
       },
       backBehavior: 'none',
       labelStyle: {
-        fontSize: 10,
-        marginTop: 13,
-        marginBottom: 2.5,
+        fontSize: pt(10),
+        marginTop: pt(13),
+        marginBottom: pt(2.5),
       },
     },
   }

@@ -44,11 +44,7 @@ class User extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  icon: {
-    width: 32,
-    height: 32,
-  },
+  }
 })
 
 export default User

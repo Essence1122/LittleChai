@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ButtonCell from './ButtonCell'
 import { View, StyleSheet } from 'react-native'
+import { pt } from '../../utils'
 
 export default class ControllButtons extends PureComponent {
 
@@ -35,7 +36,7 @@ export default class ControllButtons extends PureComponent {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		marginHorizontal: 15
+		marginHorizontal: pt(15)
 	},
 	row: {
 		flexDirection: 'row',

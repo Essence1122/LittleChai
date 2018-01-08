@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View, TextInput, StyleSheet } from 'react-native'
-import { statusBarHeight, width, iosHeaderHeight } from '../../utils' 
+import { statusBarHeight, width, iosHeaderHeight, pt } from '../../utils' 
 import SearchInput from '../widget/SearchInput'
 
 export default class HomePageHeader extends PureComponent {
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
     zIndex: 9999
 	},
 	searchInput: {
-		marginHorizontal: 15
+		marginHorizontal: pt(15)
 	}
 })

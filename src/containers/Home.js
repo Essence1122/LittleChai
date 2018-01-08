@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavigationActions, iosHeaderHeight } from '../utils'
+import { NavigationActions, iosHeaderHeight, pt } from '../utils'
 import { StyleSheet, View, ListView, StatusBar } from 'react-native'
 import { TabBarItem, HomePageHeader, HomePageBanner, ArticleCard } from '../components'
 import * as data from '../data'
 
-const bannerHeight = 189
+const bannerHeight = pt(189)
 const scrollHeight = bannerHeight - iosHeaderHeight
 @connect()
 class Home extends Component {
@@ -79,11 +79,7 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  icon: {
-    width: 32,
-    height: 32,
-  },
+  }
 })
 
 export default Home

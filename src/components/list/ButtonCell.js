@@ -28,8 +28,8 @@ export default class ButtonCell extends PureComponent {
 				underlayColor={'rgba(255, 255, 255, 0.5)'}
 			>
 				<View style={styles.cellContainer}>
-					<Image style={{marginTop: 22}} source={image}/>
-					<Text style={{marginTop: 12.5, fontSize: 13, color: '#28293E'}}>{label}</Text>
+					<Image style={{marginTop: pt(22)}} source={image}/>
+					<Text style={{marginTop: pt(12.5), fontSize: pt(13), color: '#28293E'}}>{label}</Text>
 				</View>
 			</TouchableHighlight>
 		)
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
 		borderRadius: pt(4),
 		backgroundColor: '#ffffff',
 		alignItems: 'center',
-		shadowOffset: {width: 0, height: 2},  
+		shadowOffset: {width: 0, height: pt(2)},  
     shadowOpacity: 0.2,  
-    shadowRadius: 5,  
+    shadowRadius: pt(5),  
     shadowColor: '#1e2775'
 	}
 })

@@ -12,7 +12,7 @@ import {
 	Text, 
 	TouchableHighlight 
 } from 'react-native'
-import { onePixel } from '../../utils'
+import { pt } from '../../utils'
 
 export default class ArticleCard extends PureComponent {
 
@@ -46,7 +46,7 @@ export default class ArticleCard extends PureComponent {
 					<Image
 						resizeMode='cover'
 						source={image} 
-						style={{width: 100, height: 100, marginLeft: 17}}
+						style={{width: pt(100), height: pt(100), marginLeft: pt(17)}}
 					/>
 					<View style={{height: '100%', flex: 1, flexDirection: 'row'}}>
 						<View style={styles.textArea}>
@@ -79,42 +79,42 @@ export default class ArticleCard extends PureComponent {
 
 const styles = StyleSheet.create({
 	touch: {
-		height: 150,
-		marginHorizontal: 15,
-		marginBottom: 13,
-		borderRadius: 5,
-		shadowOffset: {width: 0, height: 2},  
+		height: pt(150),
+		marginHorizontal: pt(15),
+		marginBottom: pt(13),
+		borderRadius: pt(5),
+		shadowOffset: {width: 0, height: pt(2)},  
     shadowOpacity: 0.2,  
-    shadowRadius: 5,  
+    shadowRadius: pt(5),  
     shadowColor: '#1e2775'
 	},
 	cardWrapper: {
 		flex: 1,
-		borderRadius: 5,
+		borderRadius: pt(5),
 		backgroundColor: '#ffffff',
 		flexDirection: 'row',
 		alignItems: 'center'
 	},
 	textArea: {
 		flex: 1,
-		marginLeft: 19,
-		marginTop: 20.5,
-		marginBottom: 17,
+		marginLeft: pt(19),
+		marginTop: pt(20.5),
+		marginBottom: pt(17),
 		justifyContent: 'space-between'
 	},
 	title: {
-		fontSize: 18,
+		fontSize: pt(18),
 		fontWeight: '600', 
-		lineHeight: 22,
+		lineHeight: pt(22),
 		color: '#2B2C2E',
-		marginRight: 12.5
+		marginRight: pt(12.5)
 	},
 	content: {
 		color: '#2B2C2E',
-		fontSize: 14,
-		lineHeight: 18,
-		top: -3,
-		marginRight: 20
+		fontSize: pt(14),
+		lineHeight: pt(18),
+		top: pt(-3),
+		marginRight: pt(20)
 	},
 	row: {
 		flexDirection: 'row',
@@ -123,33 +123,33 @@ const styles = StyleSheet.create({
 		flexWrap: 'nowrap'
 	},
 	author: {
-		lineHeight: 14,
-		fontSize: 13,
+		lineHeight: pt(14),
+		fontSize: pt(13),
 		color: '#888A8E',
-		bottom: 0.5	
+		bottom: pt(0.5)	
 	},
 	dot: {
 		color: '#888A8E',
-		marginHorizontal: 1
+		marginHorizontal: pt(1)
 	},
 	time: {
-		lineHeight: 14,
-		fontSize: 13,
+		lineHeight: pt(14),
+		fontSize: pt(13),
 		color: '#888A8E'
 	},
 	favarate: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		marginRight: 19
+		marginRight: pt(19)
 	},
 	number: {
-		lineHeight: 14,
-		fontSize: 13,
+		lineHeight: pt(14),
+		fontSize: pt(13),
 		color: '#ADB0B6',
-		marginLeft: 3
+		marginLeft: pt(3)
 	},
 	like: {
-		marginLeft: 10
+		marginLeft: pt(10)
 	}
 })

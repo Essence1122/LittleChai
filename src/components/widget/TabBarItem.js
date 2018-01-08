@@ -7,6 +7,7 @@ import {
    TouchableWithoutFeedback,
    Easing
 } from 'react-native'
+import { pt } from '../../utils'
 import shallowEqual from 'fbjs/lib/shallowEqual'
 
 export default class TabBarIcon extends PureComponent {
@@ -43,7 +44,7 @@ export default class TabBarIcon extends PureComponent {
           style={styles.image}
           source={icon}
           fadeDuration={0}
-          resizeMode={'cover'}
+          resizeMode={'contain'}
         />
         <Animated.Image 
           style={[
@@ -53,6 +54,7 @@ export default class TabBarIcon extends PureComponent {
             }
           ]}
           source={activedIcon}
+          resizeMode={'contain'}
         />
       </View>
     )
@@ -61,14 +63,21 @@ export default class TabBarIcon extends PureComponent {
 
 const styles = StyleSheet.create({
 	imageContainer: {
-    width: 26,
-    height: 26,
-    marginBottom: 6.5,
-    backgroundColor: '#ffffff'
+    width: pt(26),
+    height: pt(26),
+    marginBottom: pt(6.5),
+    backgroundColor: 'transparent',
+    borderWidth: 0
 	},
 	activedIcon: {
 	  position: 'absolute',
+    width: pt(26),
+    height: pt(26),
 	  top: 0,
-    backgroundColor: '#ffffff'
-	}
+    backgroundColor: 'transparent'
+	},
+  image: {
+    width: pt(26),
+    height: pt(26)
+  }
 })

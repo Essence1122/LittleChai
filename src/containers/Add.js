@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { TabBarItem } from '../components'
+import { pt } from '../utils'
+import { Image } from 'react-native'
 
 export default class Add extends Component {
 
@@ -7,13 +9,11 @@ export default class Add extends Component {
     header: null,
     tabBarLabel: ' ',
     tabBarIcon: ({focused, tintColor}) => (
-      <TabBarItem
-        focused={ focused }
+      <Image
         style={
-          {width: 60, height: 60, top: -10 }
+          {width: pt(60), height: pt(60), top: pt(-10) }
         }
-        icon={require('../assets/tabbar/publish.png')}
-        activedIcon={require('../assets/tabbar/publish.png')}
+        source={require('../assets/tabbar/publish.png')}
       />
     ),
     tabBarOnPress: (...args) => {

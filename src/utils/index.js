@@ -19,4 +19,4 @@ export const statusBarHeight = Constants.statusBarHeight
 
 export const iosHeaderHeight = 64
 
-export const pt = (pt) => pt * (width / 375) 
+export const pt = (pt) => pt * Math.min(width / 375, height / 667) 

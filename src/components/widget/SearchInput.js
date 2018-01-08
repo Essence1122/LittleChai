@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View, Image, StyleSheet, Text } from 'react-native'
-import { onePixel } from '../../utils'
+import { pt } from '../../utils'
 
 export default class SearchInput extends PureComponent {
 
@@ -29,15 +29,15 @@ export default class SearchInput extends PureComponent {
 const styles = StyleSheet.create({
 	searchInputWrapper: {
 		flex: 1,
-		height: 28,
+		height: pt(28),
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'center',
-		borderRadius: 14
+		borderRadius: pt(14)
 	},
 	placeholder: {
-		fontSize: 14,
+		fontSize: pt(14),
 		color: '#ffffff',
-		marginLeft: 9.5
+		marginLeft: pt(9.5)
 	}
 })
